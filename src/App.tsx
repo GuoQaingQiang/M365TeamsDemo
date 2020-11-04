@@ -64,7 +64,7 @@ function App() {
 				console.log(date, dateString);
 			}} />
 			<h2>my DatePicker component</h2>
-			<M365DatePicker />
+			<M365DatePicker onChange={() => { return "aa" }} />
 		</div>
 	);
 }

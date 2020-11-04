@@ -3,14 +3,14 @@ import { Menu } from 'antd';
 
 const { SubMenu } = Menu;
 type SideProps = {
-    changeMenuData: void;
+    changeMenuData: () => void;
 }
-export default class Sider extends React.Component {
+export default class Sider extends React.Component<SideProps, any> {
     constructor(props: SideProps) {
         super(props);
     }
     handleClick = (e: any) => {
-        this.props.changeMenuData(e.keyPath);
+        this.props.changeMenuData();
     };
     render() {
         return (

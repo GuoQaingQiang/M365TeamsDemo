@@ -13,7 +13,7 @@ export default class M365DatePicker extends React.Component<DatePickerProps, any
     constructor(props: DatePickerProps) {
         super(props);
         this.state = {
-            isFocus: true,
+            isFocus: false,
             dataValue: '',
             dateObj: {}
         }
@@ -233,13 +233,17 @@ export default class M365DatePicker extends React.Component<DatePickerProps, any
                 <div className="date-picker-panel" style={{ display: isFocus ? "block" : "none" }}>
                     <div className="paner-header">
                         <button className="change-date"
+                            aria-label="last year"
                             onClick={() => this.lastYear()}>&lt;&lt;</button>
                         <button className="change-date"
+                            aria-label="last month"
                             onClick={() => this.lastMonth()}>&lt;</button>
                         <span>{year}year&nbsp;{month}month</span>
                         <button className="change-date"
+                            aria-label="next month"
                             onClick={() => this.nextMonth()}>&gt;&gt;</button>
                         <button className="change-date"
+                            aria-label="next year"
                             onClick={() => this.nextYear()}>&gt;</button>
                     </div>
                     <div className="paner-content">
