@@ -7,6 +7,7 @@
     padding: 4px 8px;
     height: 30px;
     line-height: 30px;
+    border: 1px solid #000000;
 }
 
 .date-picker-wrap .date-picker-panel {
@@ -16,6 +17,8 @@
     width: 280px;
     border-radius: 4px;
     box-shadow: 0px 0px 6px #cccccc;
+    background: #ffffff;
+    z-index: 20;
 }
 
 .date-picker-wrap .date-picker-panel .paner-header {
@@ -23,6 +26,24 @@
     justify-content: space-around;
     box-shadow: 0 4px 6px #eeeeee;
     padding: 6px;
+}
+
+.select-year,
+.select-month,
+.select-today {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+
+.select-year:hover,
+.select-month:hover,
+.select-today:hover {
+    color: #1890ff;
 }
 
 .date-picker-wrap .date-picker-panel .paner-header button {
@@ -46,6 +67,41 @@
     line-height: 30px;
     text-align: center;
     cursor: pointer;
+    border-radius: 2px;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-month {
+    width: 31%;
+    height: 60px;
+    line-height: 60px;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-tenyear {
+    width: 31%;
+    height: 60px;
+    line-height: 60px;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-tenyear:last-child {
+    color: #cccccc;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-tenyear:first-child {
+    color: #cccccc;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-hundredyear {
+    width: 31%;
+    height: 60px;
+    line-height: 60px;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-hundredyear:last-child {
+    color: #cccccc;
+}
+
+.date-picker-wrap .date-picker-panel .paner-content .datePicker-row .datePicker-col-hundredyear:first-child {
+    color: #cccccc;
 }
 
 .date-picker-wrap .date-picker-panel .paner-content .datePicker-row .today {
@@ -68,4 +124,8 @@
 
 .date-picker-wrap .date-picker-panel .paner-footer button {
     cursor: pointer;
+}
+
+.date-picker-wrap .date-picker-panel .paner-footer :last-child {
+    float: right;
 }
