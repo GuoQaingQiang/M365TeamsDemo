@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Steps, Row, Col, DatePicker } from 'antd';
+import { Steps, Row, Col, DatePicker, Transfer } from 'antd';
 import 'antd/dist/antd.css';
 import Sider from "./Components/Menu";
 
 import M365Steps from "./Components/M365Steps/M365Steps";
 import M365DatePicker from "./Components/DatePicker/index";
+import M365Transfer from "./Components/M365Transfer/index";
 const { Step } = Steps;
 type StepProps = {
 	className?: string;
@@ -27,6 +28,21 @@ function App() {
 		{ title: "step 3", subTitle: "This is a description." },
 		{ title: "step 4", subTitle: "This is a description." }
 	];
+	let leftDataArr = [{ value: "content1 ", disable: false, selected: false },
+	{ value: "content2", disable: false, selected: false },
+	{ value: "content3", disable: false, selected: false },
+	{ value: "content4", disable: true, selected: false },
+	{ value: "content5", disable: false, selected: false },
+	{ value: "content6", disable: true, selected: false },
+	{ value: "content7", disable: false, selected: false },
+	{ value: "content8", disable: false, selected: false },
+	{ value: "content9", disable: false, selected: false }]
+	let rightDataArr = [{ value: "content10", disable: false, selected: false },
+	{ value: "content11", disable: false, selected: false },
+	{ value: "content12", disable: false, selected: false },
+	{ value: "content13", disable: false, selected: false },
+	{ value: "content14", disable: false, selected: false },
+	{ value: "content15", disable: false, selected: false }]
 	return (
 		<div className="App">
 			{/* <h2 style={{ textAlign: 'center', height: '40px', lineHeight: '40px' }}>react+typescript+accessibility</h2>
@@ -66,7 +82,30 @@ function App() {
 			<h2>my DatePicker component</h2>
 			<M365DatePicker onChange={() => { return "aa" }} />
 			<hr />
-
+			<h2>my Transfer component</h2>
+			<Row>
+				<Col style={{ wordBreak: 'break-all' }} span="10">左侧的数据：[{
+					leftDataArr.map(item => {
+						if (item.disable) {
+							return <span className="m356Transform-disabled" key="item">{item.value},</span>
+						} else {
+							return <span className="m356Transform-indisabled" key="item">{item.value},</span>
+						}
+					})
+				}]</Col>
+				<Col style={{ wordBreak: 'break-all' }} span="10" push="2">右侧侧的数据：[{
+					rightDataArr.map(item => {
+						if (item.disable) {
+							return <span className="m356Transform-disabled" key="item">{item.value},</span>
+						} else {
+							return <span className="m356Transform-indisabled" key="item">{item.value},</span>
+						}
+					})
+				}]</Col>
+			</Row>
+			<M365Transfer
+				leftDataArrProps={leftDataArr}
+				rightDateArrProps={rightDataArr} />
 		</div>
 	);
 }

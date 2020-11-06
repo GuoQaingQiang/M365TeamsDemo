@@ -39,3 +39,11 @@
     transform: rotate(360deg);
   }
 }
+
+.m356Transform-disabled {
+  color: #666666;
+}
+
+.m356Transform-indisabled {
+  color: #000000;
+}

@@ -1,0 +1,151 @@
+/* 复选框样式开始 */
+.m365-checkbox-inner {
+    position: relative;
+    top: 3px;
+    left: 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    direction: ltr;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    border-collapse: separate;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+/* 复选框部分选中效果 */
+.m365-checkbox-inner-section:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #1890ff;
+    border: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    content: " ";
+}
+
+/* 复选框全选效果 */
+.m365-checkbox-checked-all {
+    position: relative;
+    top: 3px;
+    left: 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    direction: ltr;
+    border: 1px solid #1890ff;
+    border-radius: 2px;
+    border-collapse: separate;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    background-color: #1890ff;
+}
+
+.m365-checkbox-checked-all:after {
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    width: 5.71428571px;
+    height: 9.14285714px;
+    content: " ";
+    display: table;
+    border: 2px solid #fff;
+    border-top: 0;
+    border-left: 0;
+    -webkit-transform: rotate(45deg) scale(1) translate(-50%, -50%);
+    transform: rotate(45deg) scale(1) translate(-50%, -50%);
+    opacity: 1;
+    -webkit-transition: all .2s cubic-bezier(.12, .4, .29, 1.46) .1s;
+    transition: all .2s cubic-bezier(.12, .4, .29, 1.46) .1s;
+}
+
+/* 复选框样式结束 */
+
+.M365Transfor-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.M365Transfor-box .header input {
+    display: none;
+}
+
+.M365Transfor-box input[type=checkbox],
+label {
+    cursor: pointer;
+}
+
+.M365Transfor-wrap {
+    width: 180px;
+    border: 1px solid #999999;
+    border-radius: 2px;
+}
+
+.M365Transfor-wrap .header {
+    text-align: left;
+    padding: 4px;
+    border-bottom: 1px solid #999999;
+}
+
+.M365Transfor-wrap .header .title {
+    float: right;
+}
+
+.M365Transfor-wrap .content {
+    padding: 0;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.M365Transfor-wrap .content li {
+    list-style: none;
+    text-align: left;
+    padding: 0 4px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    height: 28px;
+}
+
+.M365Transfor-wrap .content li input,
+.M365Transfor-wrap .content li lable {
+    float: left;
+}
+
+.M365Transfor-wrap .content li:hover {
+    background: #d9d9d9;
+}
+
+.M365Transfor-wrap .content li input {
+    margin-top: 8px;
+}
+
+.M365Transfor-wrap .content li label {
+    display: inline-block;
+    width: 136px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.M365Transfor-arrow {
+    width: 50px;
+    text-align: center;
+}
+
+.M365Transfor-arrow button {
+    margin: 6px;
+    cursor: pointer;
+}
