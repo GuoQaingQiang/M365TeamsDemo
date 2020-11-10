@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Steps, Row, Col, DatePicker, Transfer } from 'antd';
+import { Steps, Row, Col, DatePicker, Collapse } from 'antd';
 import 'antd/dist/antd.css';
 import Sider from "./Components/Menu";
 
 import M365Steps from "./Components/M365Steps/M365Steps";
 import M365DatePicker from "./Components/DatePicker/index";
 import M365Transfer from "./Components/M365Transfer/index";
+import M365Collapse from "./Components/M365Collapse/index";
 const { Step } = Steps;
+const { Panel } = Collapse;
+const M365Panel = M365Collapse.Panel;
+
+function callback(key: any) {
+	console.log(key);
+}
 type StepProps = {
 	className?: string;
 	description?: React.ReactNode;
@@ -22,6 +29,7 @@ type StepProps = {
 function App() {
 	const [currentStep, setcurrentStep] = useState(0);
 	const [menuData, setMenuData] = useState(11);
+	const [panelNum, setPanelNum] = useState(0);
 	const stepsData: StepProps[] = [
 		{ title: "step 1", subTitle: "This is a description." },
 		{ title: "step 2", subTitle: "This is a description." },
@@ -106,6 +114,26 @@ function App() {
 			<M365Transfer
 				leftDataArrProps={leftDataArr}
 				rightDateArrProps={rightDataArr} />
+			<hr />
+			<h2>ant-design Collapse component</h2>
+			<Collapse defaultActiveKey={['1']} onChange={callback}>
+				<Panel header="This is panel header 1" key="1">
+					<p>panel content</p>
+				</Panel>
+				<Panel header="This is panel header 2" key="2">
+					<p>panel content</p>
+				</Panel>
+				<Panel header="This is panel header 3" key="3" disabled>
+					<p>panel content</p>
+				</Panel>
+			</Collapse>
+			<h2>my Collapse component</h2>
+			<p>被选中的面板{panelNum}</p>
+			<M365Collapse defaultActiveKey={panelNum} onChange={(num: number) => setPanelNum(num)}>
+				<M365Panel key="1" header="panel header1" content="panel content1" />
+				<M365Panel key="2" header="panel header2" content="panel content2" />
+				<M365Panel key="3" header="panel header3" content="panel content3" />
+			</M365Collapse>
 		</div>
 	);
 }
