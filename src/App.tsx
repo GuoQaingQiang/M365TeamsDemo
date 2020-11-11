@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Steps, Row, Col, DatePicker, Collapse } from 'antd';
+import { Steps, Row, Col, DatePicker, Collapse, Tooltip, Button } from 'antd';
 import 'antd/dist/antd.css';
 import Sider from "./Components/Menu";
 
@@ -8,6 +8,7 @@ import M365Steps from "./Components/M365Steps/M365Steps";
 import M365DatePicker from "./Components/DatePicker/index";
 import M365Transfer from "./Components/M365Transfer/index";
 import M365Collapse from "./Components/M365Collapse/index";
+import M365Tooltip from "./Components/M365Tooltip/index";
 const { Step } = Steps;
 const { Panel } = Collapse;
 const M365Panel = M365Collapse.Panel;
@@ -134,6 +135,31 @@ function App() {
 				<M365Panel key="2" header="panel header2" content="panel content2" />
 				<M365Panel key="3" header="panel header3" content="panel content3" />
 			</M365Collapse>
+			<hr />
+			<h2>ant-design tooltip component</h2>
+			<Tooltip title="prompt text">
+				<span>Tooltip left</span>
+			</Tooltip>
+			<h2>my tooltip component</h2>
+			<M365Tooltip title="prompt text" placement="left">
+				<Button>Tooltip left</Button>
+			</M365Tooltip>
+			<br />
+			<M365Tooltip title="prompt text" placement="right">
+				<Button>Tooltip right</Button>
+			</M365Tooltip>
+			<br />
+
+			<M365Tooltip title="prompt text" placement="top">
+				<Button>Tooltip top</Button>
+			</M365Tooltip>
+			<br />
+
+			<M365Tooltip title="prompt text" placement="bottom">
+				<Button>Tooltip bottom</Button>
+			</M365Tooltip>
+			<br />
+
 		</div>
 	);
 }
