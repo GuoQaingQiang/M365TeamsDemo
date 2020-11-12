@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Steps, Row, Col, DatePicker, Collapse, Tooltip, Button } from 'antd';
+import { Steps, Row, Col, DatePicker, Collapse, Tooltip, Button, Progress } from 'antd';
 import 'antd/dist/antd.css';
 import Sider from "./Components/Menu";
 
@@ -9,6 +9,7 @@ import M365DatePicker from "./Components/DatePicker/index";
 import M365Transfer from "./Components/M365Transfer/index";
 import M365Collapse from "./Components/M365Collapse/index";
 import M365Tooltip from "./Components/M365Tooltip/index";
+import M365Progress from "./Components/M365Progress/index";
 const { Step } = Steps;
 const { Panel } = Collapse;
 const M365Panel = M365Collapse.Panel;
@@ -31,6 +32,7 @@ function App() {
 	const [currentStep, setcurrentStep] = useState(0);
 	const [menuData, setMenuData] = useState(11);
 	const [panelNum, setPanelNum] = useState(0);
+	const [percent, setPercent] = useState(50);
 	const stepsData: StepProps[] = [
 		{ title: "step 1", subTitle: "This is a description." },
 		{ title: "step 2", subTitle: "This is a description." },
@@ -159,6 +161,31 @@ function App() {
 				<Button>Tooltip bottom</Button>
 			</M365Tooltip>
 			<br />
+			<h2>ant-design Progress component</h2>
+			<Progress percent={30} />
+			<Progress percent={50} status="active" />
+			<Progress percent={70} status="exception" />
+			<Progress percent={100} />
+			<Progress percent={50} showInfo={false} />
+
+			<h2>my Progress component</h2>
+			<Button aria-label="subtraction percent"
+				onClick={() => {
+					let newpercent = percent - 10 >= 0 ? percent - 10 : 0;
+					setPercent(newpercent);
+				}}>-</Button>
+			<Button aria-label="Addition  percent"
+				onClick={() => {
+					let newpercent = percent + 10 <= 100 ? percent + 10 : 100;
+					setPercent(newpercent);
+				}}>+</Button>
+			<section className="code-box-demo">
+				<M365Progress percent={percent} />
+				<M365Progress percent={percent} showInfo={false} />
+				<M365Progress percent={percent} status="active" />
+				<M365Progress percent={percent} status="exception" />
+				<M365Progress percent={100} />
+			</section>
 
 		</div>
 	);
