@@ -185,6 +185,11 @@ function App() {
 				<M365Progress percent={percent} status="active" />
 				<M365Progress percent={percent} status="exception" />
 				<M365Progress percent={100} />
+
+				<div style={{ width: '100px' }}>
+					<M365Progress percent={percent} type="circle" />
+				</div>
+
 			</section>
 
 		</div>
