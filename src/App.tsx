@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Steps, Row, Col, DatePicker, Collapse, Tooltip, Button, Progress } from 'antd';
+import { Steps, Row, Col, DatePicker, Collapse, Tooltip, Progress, message, Button, Space } from 'antd';
 import 'antd/dist/antd.css';
 import Sider from "./Components/Menu";
 
@@ -10,6 +10,7 @@ import M365Transfer from "./Components/M365Transfer/index";
 import M365Collapse from "./Components/M365Collapse/index";
 import M365Tooltip from "./Components/M365Tooltip/index";
 import M365Progress from "./Components/M365Progress/index";
+import M365Message from "./Components/M365Message/index";
 const { Step } = Steps;
 const { Panel } = Collapse;
 const M365Panel = M365Collapse.Panel;
@@ -28,6 +29,30 @@ type StepProps = {
 	subTitle?: React.ReactNode;
 	style?: React.CSSProperties;
 }
+
+const success = () => {
+	message.success('This is a success message');
+};
+
+const error = () => {
+	message.error('This is an error message');
+};
+
+const warning = () => {
+	message.warning('This is a warning message');
+};
+
+const successM365 = () => {
+	M365Message.success('This is a success message');
+};
+
+const errorM365 = () => {
+	M365Message.error('This is an error message');
+};
+
+const warningM365 = () => {
+	M365Message.warning('This is a warning message');
+};
 function App() {
 	const [currentStep, setcurrentStep] = useState(0);
 	const [menuData, setMenuData] = useState(11);
@@ -191,6 +216,22 @@ function App() {
 				</div>
 
 			</section>
+
+			<h2>ant-design Message component</h2>
+			<Space>
+				<Button onClick={success}>Success</Button>
+				<Button onClick={error}>Error</Button>
+				<Button onClick={warning}>Warning</Button>
+			</Space>
+
+			<h2>my Message component</h2>
+			<Space>
+				<Button onClick={successM365}>Success</Button>
+				<Button onClick={errorM365}>Error</Button>
+				<Button onClick={warningM365}>Warning</Button>
+			</Space>
+
+
 
 		</div>
 	);
